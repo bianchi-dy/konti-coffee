@@ -566,23 +566,23 @@
       <div class="legend-flex xs12">
         <div class="layout row wrap pb-1">
           <div class="flex xs12">
-            <span class="legend-title-font">Primary involvement in coffee</span>
+            <span class="legend-title-font">Country is primarily a</span>
           </div>
         </div>
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #a63200;"></span>
+            <span class="legend-square" style="background-color: #064E43;"></span>
           </div>
           <div class="flex xs90p">
-            <span class="legend-square-text">Import</span>
+            <span class="legend-square-text">Importer</span>
           </div>
         </div>
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #f8d69b;"></span>
+            <span class="legend-square" style="background-color: #E58162;"></span>
           </div>
           <div class="flex xs90p">
-            <span class="legend-square-text">Export</span>
+            <span class="legend-square-text">Exporter</span>
           </div>
         </div>
       </div>
@@ -596,22 +596,22 @@
 </body>
 
 <script>
+
   mapboxgl.accessToken =
-    'pk.eyJ1Ijoia29udGluZW50YWxpc3QiLCJhIjoiY2trcXhiY3ViMDhqMjJwcGN0bWIxYmw5aSJ9.R60CtRwU5oteBvA5XybBqA'; // replace this with your access token
+    'pk.eyJ1Ijoia29udGluZW50YWxpc3QiLCJhIjoiY2p2bTc3d2FoMHcyejN6cGlzMGNrbW5sNCJ9.2Umw33QwGFmUtaQY_A1K-A'; // replace this with your access token
   
+  
+  let isMobile = window.innerWidth < 680;
+  const zoom = isMobile ? 1 : 1.5;
+  const center = isMobile ? [13.956,56.274] : [20,14.118]
+
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kontinentalist/cknsl4xap0g8w18murjlhq2rk', //mapbox://styles/kontinentalist/cjvm6xxe333b71cldmgv25t5y',
-    center: [32.076,14.118],
-    zoom: 1.3
+    center: center, //define new center for mobile
+    zoom: zoom
+
   });
-
-  let isMobile = window.innerWidth < 680;
-  const zoom = 4 - (isMobile ? 1 : 0);
-
-  const layerNames = [
-      'energydata'
-  ];
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl({
@@ -619,145 +619,62 @@
   }));
 
   map.on('load', function () {
-    map.addSource('points', {
-        'type': 'geojson',
-        'data': {
-        'type': 'FeatureCollection',
-        'features': [
-        {
-        // feature for Mapbox DC
-        'type': 'Feature',
-        'geometry': {
-        'type': 'Point',
-        'coordinates': [
-        -77.03238901390978,
-        38.913188059745586
-        ]
-        },
-        'properties': {
-        'title': 'Mapbox DC',
-        'radius': 1000
-        }
-        },
-        {
-        // feature for Mapbox SF
-        'type': 'Feature',
-        'geometry': {
-        'type': 'Point',
-        'coordinates': [-122.414, 37.776]
-        },
-        'properties': {
-        'title': 'Mapbox SF',
-        'radius': 100
-        }
-        }
-        ]
-        }
-        });
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+    });
+    var isMarkerClicked = false;
+    var coordinates = [0, 0],
+      description = null;
 
-    // Add a symbol layer
-        map.addLayer({
-        'id': 'points',
-        'type': 'symbol',
-        'source': 'points',
-        'layout': {
-        'icon-image': 'custom-marker',
-        // get the title name from the source's "title" property
-        'text-field': ['get', 'title'],
-        'text-font': [
-        'Open Sans Semibold',
-        'Arial Unicode MS Bold'
-        ],
-        'text-offset': [0, 1.25],
-        'text-anchor': 'top'
-        }
-        });
+    map.on('mousemove', 'consumption-points', function (e) {
+      onMouseHover(e, 'consumption-points', clickable);
+    });
+    map.on('mouseleave', 'consumption-points', onMouseLeave);
 
-    // add layer
-    this.map.addLayer({
-        id: 'points',
-        type: 'circle',
-        source: 'points',
-        paint: {
-          'circle-opacity': 0.8,
-          'circle-stroke-color': '#B0B0B0',
-          'circle-stroke-width': 40,
-          'circle-radius': ['get', 'radius'],
-        },
-        layout: {
-          'visibility': 'none',
-        }
-      });      
+    map.on('click', function () {
+      if (popup.isOpen() && isMarkerClicked) {
+        popup.remove();
+        isMarkerClicked = false;
+      } else if (popup.isOpen() && !isMarkerClicked) {
+        isMarkerClicked = true;
+      }
+    });
 
-    // map.addSource("india_040220-5mkqnj", {
-    //     "type": "vector",
-    //     "url": "mapbox://kontinentalist.4dc98b73",
-    //     "maxzoom": 22,
-    //     "minzoom": 0
-    // });
+    function onMouseHover(e, id, htmlCallback) {
+      if (isMarkerClicked) {
+        return;
+      }
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
 
-    // var popup = new mapboxgl.Popup({
-    //   closeButton: false,
-    //   closeOnClick: false,
-    // });
-    // var isMarkerClicked = false;
-    // var coordinates = [0, 0],
-    //   description = null;
+      coordinates = e.lngLat;
+      properties = e.features[0].properties;
 
-    // map.on('mousemove', 'choropleth-fill', function (e) {
-    //   onMouseHover(e, 'choropleth-fill', islamicWorldBilateralDisputeHTML);
-    // });
-    // map.on('mouseleave', 'choropleth-fill', onMouseLeave);
+      if (htmlCallback) {
+        html = htmlCallback(properties, coordinates);
+      }
 
-    // map.on('click', function () {
-    //   if (popup.isOpen() && isMarkerClicked) {
-    //     popup.remove();
-    //     isMarkerClicked = false;
-    //   } else if (popup.isOpen() && !isMarkerClicked) {
-    //     isMarkerClicked = true;
-    //   }
-    // });
+      popup
+        .setLngLat(coordinates)
+        .setHTML(html)
+        .addTo(map);
+    }
 
-    // function onMouseHover(e, id, htmlCallback) {
-    //   if (isMarkerClicked) {
-    //     return;
-    //   }
-    //   // Change the cursor style as a UI indicator.
-    //   map.getCanvas().style.cursor = 'pointer';
+    function onMouseLeave() {
+      map.getCanvas().style.cursor = '';
+      if (isMarkerClicked) {
+        return;
+      }
+      popup.remove();
+    }
 
-    //   coordinates = e.lngLat;
-    //   properties = e.features[0].properties;
-
-    //   if (htmlCallback) {
-    //     html = htmlCallback(properties, coordinates);
-    //   }
-
-    //   popup
-    //     .setLngLat(coordinates)
-    //     .setHTML(html)
-    //     .addTo(map);
-    // }
-
-    // function onMouseLeave() {
-    //   map.getCanvas().style.cursor = '';
-    //   if (isMarkerClicked) {
-    //     return;
-    //   }
-    //   popup.remove();
-    // }
-
-    // function indiaMbps(properties) {
-    //   return '<h3 class="popup-title-font">' + properties.District + '</h3>' +
-    //     '<p class="popup-text-font">' + 'Ave download speed: ' + properties.ave_mpbs_wt + ' mbps</p>';
-    // }
-
-    // function islamicWorldBilateralDisputeHTML(properties) {
-    //   let header = '<h2 class="popup-title-font">' + properties.NAME_2 + '</h2>';
-    //   let district = '<p class="popup-text-font">District: ' + properties.NAME_1 + '</p>'
-    //   let speed = '<p class="popup-text-font">Mean download speed (mbps)</n><br> ' + properties.avg_d_mbps_wt.toFixed(2) + 
-    //     ' mbps</p>';
-    //   return header + district + speed
-    // }
+    function clickable(properties) {
+      let header = '<h2 class="popup-title-font">' + properties.country + '</h2>';
+      let type = '<p class="popup-text-font">Primary involvement in coffee: ' + properties.type + '</p>'
+      let kg = '<p class="popup-text-font">Coffee consumed in 2019 (kg):</n><br> ' + properties.kg.toLocaleString('en') + '</p>';
+      return header + type + kg
+    }
   });
 
   // enable scrolling on CTRL key only
