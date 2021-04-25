@@ -1,0 +1,842 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.788908,
+          6.295465
+        ]
+      },
+      "properties": {
+        "location": "Langkawi, Malaysia",
+        "date": "03-04-2018",
+        "timeGroup": 2,
+        "incident": "disembarkation",
+        "survivors": 56,
+        "deaths": null,
+        "total": 56
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.108849,
+          7.487154
+        ]
+      },
+      "properties": {
+        "location": "Aceh, Indonesia",
+        "date": "06-04-2018",
+        "timeGroup": 2,
+        "incident": "rescue",
+        "survivors": 5,
+        "deaths": 10,
+        "total": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.872393,
+          7.056691
+        ]
+      },
+      "properties": {
+        "location": "Aceh, Indonesia",
+        "date": "20-04-2018",
+        "timeGroup": 2,
+        "incident": "rescue",
+        "survivors": 79,
+        "deaths": null,
+        "total": 79
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.844527,
+          20.108928
+        ]
+      },
+      "properties": {
+        "location": "Sittwe, Myanmar",
+        "date": "10-05-2018",
+        "timeGroup": 2,
+        "incident": "returned due to engine failure",
+        "survivors": 36,
+        "deaths": null,
+        "total": 36
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.78122,
+          20.288737
+        ]
+      },
+      "properties": {
+        "location": "Rathedaung, Myanmar",
+        "date": "11-06-2018",
+        "timeGroup": 2,
+        "incident": "washed ashore",
+        "survivors": 104,
+        "deaths": null,
+        "total": 104
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.718817,
+          21.272707
+        ]
+      },
+      "properties": {
+        "location": "Bay of Bengal, Bangladesh",
+        "date": "07-11-2018",
+        "timeGroup": 4,
+        "incident": "interception",
+        "survivors": 33,
+        "deaths": null,
+        "total": 33
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.314789,
+          16.617985
+        ]
+      },
+      "properties": {
+        "location": "Kyauktan, Myanmar",
+        "date": "16-11-2018",
+        "timeGroup": 4,
+        "incident": "interception",
+        "survivors": 106,
+        "deaths": 1,
+        "total": 107
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.380456,
+          19.496331
+        ]
+      },
+      "properties": {
+        "location": "Kyauk Phyu, Myanmar",
+        "date": "21-11-2018",
+        "timeGroup": 4,
+        "incident": "interception",
+        "survivors": 84,
+        "deaths": null,
+        "total": 84
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.214331,
+          13.742971
+        ]
+      },
+      "properties": {
+        "location": "Dawei, Myanmar",
+        "date": "25-11-2018",
+        "timeGroup": 4,
+        "incident": "interception",
+        "survivors": 93,
+        "deaths": null,
+        "total": 93
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.141206,
+          12.240535
+        ]
+      },
+      "properties": {
+        "location": "Kyunsu, Myanmar",
+        "date": "29-11-2018",
+        "timeGroup": 4,
+        "incident": "interception",
+        "survivors": 38,
+        "deaths": null,
+        "total": 38
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.569306,
+          5.61386
+        ]
+      },
+      "properties": {
+        "location": "Aceh, Indonesia",
+        "date": "04-12-2018",
+        "timeGroup": 4,
+        "incident": "disembarkation",
+        "survivors": 20,
+        "deaths": null,
+        "total": 20
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2067,
+          6.2505
+        ]
+      },
+      "properties": {
+        "location": "Malaysia",
+        "date": "24-12-2018",
+        "timeGroup": 4,
+        "incident": "disembarkation",
+        "survivors": 98,
+        "deaths": null,
+        "total": 98
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.284,
+          6.14811
+        ]
+      },
+      "properties": {
+        "location": "Malaysia",
+        "date": "05-01-2019",
+        "timeGroup": 5,
+        "incident": "disembarkation",
+        "survivors": 108,
+        "deaths": null,
+        "total": 108
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.802381,
+          20.064345
+        ]
+      },
+      "properties": {
+        "location": "Sittwe, Myanmar",
+        "date": "08-02-2019",
+        "timeGroup": 5,
+        "incident": "interception",
+        "survivors": 14,
+        "deaths": null,
+        "total": 14
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.359,
+          5.90715
+        ]
+      },
+      "properties": {
+        "location": "Malaysia",
+        "date": "26-02-2019",
+        "timeGroup": 5,
+        "incident": "disembarkation",
+        "survivors": 85,
+        "deaths": null,
+        "total": 85
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.759175,
+          18.151124
+        ]
+      },
+      "properties": {
+        "location": "Myanmar",
+        "date": "12-03-2019",
+        "timeGroup": 5,
+        "incident": "interception",
+        "survivors": 20,
+        "deaths": null,
+        "total": 20
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.129626,
+          6.40032
+        ]
+      },
+      "properties": {
+        "location": "Perlis, Malaysia",
+        "date": "08-04-2019",
+        "timeGroup": 6,
+        "incident": "disembarkation",
+        "survivors": 260,
+        "deaths": null,
+        "total": 260
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.294094,
+          20.903854
+        ]
+      },
+      "properties": {
+        "location": "Naf River, Bangladesh",
+        "date": "06-05-2019",
+        "timeGroup": 6,
+        "incident": "capsized",
+        "survivors": 0,
+        "deaths": 4,
+        "total": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.36388,
+          5.422116
+        ]
+      },
+      "properties": {
+        "location": "Penang, Malaysia",
+        "date": "13-05-2019",
+        "timeGroup": 6,
+        "incident": "disembarkation",
+        "survivors": 143,
+        "deaths": null,
+        "total": 143
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.282006,
+          20.612055
+        ]
+      },
+      "properties": {
+        "location": "St. Martin's Island, Bangladesh",
+        "date": "30-05-2019",
+        "timeGroup": 6,
+        "incident": "interception",
+        "survivors": 58,
+        "deaths": null,
+        "total": 58
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.670475,
+          7.001266
+        ]
+      },
+      "properties": {
+        "location": "Satun, Thailand",
+        "date": "11-06-2019",
+        "timeGroup": 6,
+        "incident": "washed ashore",
+        "survivors": 64,
+        "deaths": null,
+        "total": 64
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.409971,
+          20.687725
+        ]
+      },
+      "properties": {
+        "location": "Muangdaw, Myanmar",
+        "date": "08-07-2019",
+        "timeGroup": 7,
+        "incident": "washed ashore",
+        "survivors": 67,
+        "deaths": null,
+        "total": 67
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.12637,
+          6.403236
+        ]
+      },
+      "properties": {
+        "location": "Perlis, Malaysia",
+        "date": "21-07-2019",
+        "timeGroup": 7,
+        "incident": "disembarkation",
+        "survivors": 34,
+        "deaths": null,
+        "total": 34
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.864549,
+          21.653197
+        ]
+      },
+      "properties": {
+        "location": "Bay of Bengal, Bangladesh",
+        "date": "14-11-2019",
+        "timeGroup": 8,
+        "incident": "rescue",
+        "survivors": 122,
+        "deaths": null,
+        "total": 122
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.866812,
+          21.45531
+        ]
+      },
+      "properties": {
+        "location": "Sonadia, Bangladesh",
+        "date": "25-11-2019",
+        "timeGroup": 8,
+        "incident": "abandoned by smugglers",
+        "survivors": 42,
+        "deaths": null,
+        "total": 42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.435608,
+          16.96742
+        ]
+      },
+      "properties": {
+        "location": "Chaung Thaw, Myanmar",
+        "date": "29-11-2019",
+        "timeGroup": 8,
+        "incident": "interception",
+        "survivors": 95,
+        "deaths": null,
+        "total": 95
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.532505,
+          9.977872
+        ]
+      },
+      "properties": {
+        "location": "Kawthaung, Myanmar",
+        "date": "15-12-2019",
+        "timeGroup": 8,
+        "incident": "interception",
+        "survivors": 173,
+        "deaths": null,
+        "total": 173
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.309438,
+          5.461833
+        ]
+      },
+      "properties": {
+        "location": "Penang, Malaysia",
+        "date": "30-01-2020",
+        "timeGroup": 9,
+        "incident": "disembarkation",
+        "survivors": 66,
+        "deaths": null,
+        "total": 66
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.796566,
+          20.466131
+        ]
+      },
+      "properties": {
+        "location": "St. Martin's Island, Bangladesh",
+        "date": "11-02-2020",
+        "timeGroup": 9,
+        "incident": "capsized",
+        "survivors": 73,
+        "deaths": 65,
+        "total": 138
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.718232,
+          16.74177
+        ]
+      },
+      "properties": {
+        "location": "Pathein, Myanmar",
+        "date": "13-02-2020",
+        "timeGroup": 9,
+        "incident": "interception",
+        "survivors": 57,
+        "deaths": null,
+        "total": 57
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.716308,
+          16.744281
+        ]
+      },
+      "properties": {
+        "location": "Pathein, Myanmar",
+        "date": "20-11-2019",
+        "timeGroup": 8,
+        "incident": "interception",
+        "survivors": 22,
+        "deaths": null,
+        "total": 22
+      }
+    },    
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.023581,
+          6.550325
+        ]
+      },
+      "properties": {
+        "location": "South Thailand",
+        "date": "07-03-2020",
+        "timeGroup": 9,
+        "incident": "disembarkation",
+        "survivors": 70,
+        "deaths": null,
+        "total": 70
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.784,
+          6.4218
+        ]
+      },
+      "properties": {
+        "location": "Langkawi, Malaysia",
+        "date": "08-03-2020",
+        "timeGroup": 9,
+        "incident": "disembarkation",
+        "survivors": 244,
+        "deaths": null,
+        "total": 244
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.685,
+          6.3596
+        ]
+      },
+      "properties": {
+        "location": "Langkawi, Malaysia",
+        "date": "05-04-2020",
+        "timeGroup": 10,
+        "incident": "disembarkation",
+        "survivors": 202,
+        "deaths": null,
+        "total": 202
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.724322,
+          6.822215
+        ]
+      },
+      "properties": {
+        "location": "Aceh, Indonesia",
+        "date": "07-04-2020",
+        "timeGroup": 10,
+        "incident": "drowned body recovered",
+        "survivors": 0,
+        "deaths": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.946606,
+          21.465737
+        ]
+      },
+      "properties": {
+        "location": "Cox's Bazar, Bangladesh",
+        "date": "15-04-2020",
+        "timeGroup": 10,
+        "incident": "disembarkation after failed voyage",
+        "survivors": 392,
+        "deaths": 70,
+        "total": 462
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.034177,
+          6.357334
+        ]
+      },
+      "properties": {
+        "location": "Northwest coast, Malaysia",
+        "date": "16-04-2020",
+        "timeGroup": 10,
+        "incident": "pushback by authorities",
+        "survivors": 300,
+        "deaths": null,
+        "total": 300
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.983697,
+          21.413526
+        ]
+      },
+      "properties": {
+        "location": "Cox's Bazar, Bangladesh",
+        "date": "07-05-2020",
+        "timeGroup": 10,
+        "incident": "disembarkation after failed voyage",
+        "survivors": 277,
+        "deaths": null,
+        "total": 277
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.972989,
+          21.425129
+        ]
+      },
+      "properties": {
+        "location": "Cox's Bazar, Bangladesh",
+        "date": "03-05-2020",
+        "timeGroup": 10,
+        "incident": "disembarkation after failed voyage",
+        "survivors": 29,
+        "deaths": null,
+        "total": 29
+      }
+    },    
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.717,
+          6.3537
+        ]
+      },
+      "properties": {
+        "location": "Langkawi, Malaysia",
+        "date": "08-06-2020",
+        "timeGroup": 10,
+        "incident": "disembarkation",
+        "survivors": 269,
+        "deaths": 31,
+        "total": 300
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.317857,
+          5.919898
+        ]
+      },
+      "properties": {
+        "location": "Lhokseumawe, Indonesia",
+        "date": "25-06-2020",
+        "timeGroup": 10,
+        "incident": "rescue",
+        "survivors": 99,
+        "deaths": 12,
+        "total": 111
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.360862,
+          5.925572
+        ]
+      },
+      "properties": {
+        "location": "Northwest coast, Malaysia",
+        "date": "24-07-2020",
+        "timeGroup": 11,
+        "incident": "disembarkation",
+        "survivors": 80,
+        "deaths": null,
+        "total": 80
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.12683,
+          16.690546
+        ]
+      },
+      "properties": {
+        "location": "Ayerrawaddy, Myanmar",
+        "date": "28-08-2020",
+        "timeGroup": 11,
+        "incident": "interception",
+        "survivors": 42,
+        "deaths": null,
+        "total": 42
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.039407,
+          5.241581
+        ]
+      },
+      "properties": {
+        "location": "North Aceh, Indonesia",
+        "date": "07-09-2020",
+        "timeGroup": 11,
+        "incident": "disembarkation",
+        "survivors": 293,
+        "deaths": 33,
+        "total": 326,
+        "comment": "(3 deaths occurred after disembarkation.)"
+      }
+    }
+  ]
+}
