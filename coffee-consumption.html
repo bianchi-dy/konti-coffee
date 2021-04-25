@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Kontinentalist | How far has Asia gone in eradicating poverty?</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Karla', sans-serif !important;
+      font-size: 12px;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+      margin: 20px 20px 0 0;
+    }
+
+    /* map instruction */
+    .map-instruction {
+      display: none;
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translate(-50%, -5%);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 8px 16px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .map-instruction>span {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .mapboxgl-popup-content {
+      font-family: 'Karla', sans-serif !important;
+      max-width: 250px;
+    }
+
+    /**
+      * Set rules for how the map overlays
+      * (info box and legend) will be displayed
+      * on the page. */
+    .map-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      overflow: auto;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      line-height: 18px;
+      height: auto;
+      width: auto;
+      padding: 15px;
+      min-width: 90px;
+      max-width: 90px;
+    }
+
+    #features {
+      top: 0;
+      height: 100px;
+      margin-top: 20px;
+      width: 250px;
+    }
+
+    #legend-container {
+      margin-right: 20px;
+      margin-bottom: 40px;
+    }
+
+    .legend-key {
+      display: inline-block;
+      border-radius: 20%;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+
+    .legend-flex {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+      justify-content: space-between;
+    }
+
+    /* CSS Microframework */
+    .layout {
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .row {
+      flex-direction: row;
+    }
+
+    .flex {
+      flex: 1 1 auto;
+      max-width: 100%;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    .col-3 {
+      flex: 3;
+    }
+
+    .pt-0 {
+      padding-top: 0px !important;
+    }
+
+    .pb-0 {
+      padding-bottom: 0px !important;
+    }
+
+    .pt-1 {
+      padding-top: 10px !important;
+    }
+
+    .pb-1 {
+      padding-bottom: 10px !important;
+    }
+
+    .py-1 {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    @media all and (min-width: 0px) {
+      .xs2 {
+        flex-basis: 16.666666666666664%;
+        max-width: 16.666666666666664%;
+        flex-grow: 0;
+      }
+
+      .xs10 {
+        flex-basis: 83.33333333333334%;
+        max-width: 83.33333333333334%;
+        flex-grow: 0;
+      }
+
+      .xs12 {
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+      }
+
+      .xs10p {
+        flex-basis: 10%;
+        max-width: 10%;
+        flex-grow: 0;
+      }
+
+      .xs90p {
+        flex-basis: 90%;
+        max-width: 90%;
+        flex-grow: 0;
+      }
+    }
+
+    hr.separation-line {
+      margin: 0;
+      opacity: 0.3;
+    }
+
+    .legend-title-font {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .disclaimer-font {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    .legend {
+      position: relative;
+      border: 0.5px solid black;
+      opacity: 0.6;
+      border-radius: 100%;
+      width: 25px;
+      height: 25px;
+      margin-bottom: 5px;
+    }
+
+    .dotted-line {
+      position: absolute;
+      top: -25%;
+      left: 40%;
+      border: none;
+      border-top: 1px solid black;
+      height: 1px;
+      width: 45px;
+    }
+
+    .legend2 {
+      position: absolute;
+      top: -25%;
+      left: -50%;
+      border: 1px solid black;
+      border-radius: 100%;
+      width: 10px;
+      height: 10px;
+      margin-top: 19px;
+      margin-left: 20px;
+    }
+
+    .dotted-line2 {
+      position: absolute;
+      top: 25%;
+      left: 40%;
+      border: none;
+      border-top: 1px solid black;
+      height: 1px;
+      width: 45px;
+    }
+
+    .legend-text1 {
+      position: absolute;
+      opacity: 0.6;
+      top: -25%;
+      left: 30%;
+    }
+
+    .legend-text2 {
+      position: absolute;
+      opacity: 0.6;
+      top: 30%;
+      left: 30%;
+    }
+
+    .legend-square {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+    }
+
+    .legend-square-text {
+      padding-left: 10px;
+      opacity: 0.7;
+    }
+
+    .datasource-font {
+      font-size: 11px;
+    }
+
+    .datasource-font a {
+      color: #F38063;
+      text-decoration: unset;
+    }
+
+    .datasource-font a:hover {
+      text-decoration: underline;
+    }
+
+    .popup-title-font {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .popup-text-font {
+      margin-top: 0px;
+      margin-bottom: 6px;
+    }
+
+    .mapboxgl-popup {
+      z-index: 201;
+    }
+
+    .icon {
+      border: 0.5px solid black;
+      border-radius: 100%;
+      width: 10px;
+      height: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 15px;
+      margin-right: 10px;
+    }
+
+    .credit-font {
+      font-size: 11px;
+      padding-right: 6px;
+    }
+
+    /* dialog box CSS */
+    .dialog-instruction {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, -48px);
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 1px 3px rgba(0,0,0,.14);
+    }
+
+    .v-dialog-overlay {
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .v-dialog-overlay--active {
+      z-index: 200;
+    }
+
+    .v-dialog-overlay--active::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #212121;
+      opacity: 0.46;
+      width: 100%;
+      height: 100%;
+    }
+
+    .v-dialog {
+      z-index: 201;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .v-dialog__content {
+      z-index: inherit;
+      pointer-events: auto;
+      overflow-y: auto;
+      text-align: left;
+      width: 100%;
+      max-width: 150px;
+      max-height: 80%;
+      padding: 24px 20px;
+      margin: 24px;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    }
+
+    .dialog-content__img > img {
+      width: 100%;
+      height: auto;
+    }
+
+    .dialog-content__text {
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .dialog-content__link {
+      margin-bottom: 24px;
+    }
+
+    .dialog-content__link a {
+      text-decoration: none;
+      color: #F38063;
+    }
+
+    .v-btn {
+      font-family: 'Karla', sans-serif;
+      cursor: pointer;
+      background-color: transparent;
+      color: #f38063;
+      border: 1px solid #f38063;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 5px;
+      flex: 0 0 auto;
+      font-size: 14px;
+      font-weight: 500;
+      justify-content: center;
+      padding: 0 16px;
+      margin: 4px 8px;
+      height: 30px;
+      min-width: 88px;
+      outline: 0;
+      text-transform: none;
+      text-decoration: none;
+      position: relative;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    /* mobile */
+    @media (max-width: 959px) {
+      .map-overlay {
+        margin-bottom: 78px !important;
+      }
+
+      .dialog-instruction {
+        text-align: center;
+        padding: 8px 0;
+        left: 15px;
+        right: 15px;
+        bottom: 40px;
+        transform: unset;
+      }
+    }
+
+    /* CSS Microframework */
+    .layout {
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .row {
+      flex-direction: row;
+    }
+
+    .flex {
+      flex: 1 1 auto;
+      max-width: 100%;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    .col-3 {
+      flex: 3;
+    }
+
+    .pt-0 {
+      padding-top: 0px !important;
+    }
+
+    .pb-0 {
+      padding-bottom: 0px !important;
+    }
+
+    .pt-1 {
+      padding-top: 10px !important;
+    }
+
+    .pb-1 {
+      padding-bottom: 10px !important;
+    }
+
+    .py-1 {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    @media all and (min-width: 0px) {
+      .xs2 {
+        flex-basis: 16.666666666666664%;
+        max-width: 16.666666666666664%;
+        flex-grow: 0;
+      }
+
+      .xs10 {
+        flex-basis: 83.33333333333334%;
+        max-width: 83.33333333333334%;
+        flex-grow: 0;
+      }
+
+      .xs12 {
+        flex-basis: 100%;
+        max-width: 100%;
+        flex-grow: 0;
+      }
+
+      .xs10p {
+        flex-basis: 10%;
+        max-width: 10%;
+        flex-grow: 0;
+      }
+
+      .xs90p {
+        flex-basis: 90%;
+        max-width: 90%;
+        flex-grow: 0;
+      }
+    }
+
+    hr.separation-line {
+      margin: 0;
+      opacity: 0.3;
+    }
+
+
+    /* @media all and (max-width: 480px) {
+      #legend-container {
+        margin-left: 20px;
+      }
+
+      .map-overlay {
+        max-width: unset;
+      }
+
+      .xs-pt-0 {
+        padding-top: 0px !important;
+      }
+
+      .logo-img {
+        top: 0px;
+      }
+
+      .xs-flex {
+        flex-direction: row;
+      }
+
+      .legend-text1 {
+        left: 45%;
+      }
+
+      .legend-text2 {
+        left: 45%;
+      }
+
+      .jackpot-winnings-container {
+        max-width: 135px;
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id='map'></div>
+
+    <!-- scrolling instruction -->
+    <div class="map-instruction">
+      <span>Hold CTRL or ⌘ to zoom the map</span>
+    </div>
+
+    <!-- legends -->
+    <div class='map-overlay row wrap' id='legend-container'>
+      <div class="legend-flex xs12">
+        <div class="layout row wrap pb-1">
+          <div class="flex xs12">
+            <span class="legend-title-font">Primary involvement in coffee</span>
+          </div>
+        </div>
+        <div class="layout row wrap">
+          <div class="flex xs10p">
+            <span class="legend-square" style="background-color: #a63200;"></span>
+          </div>
+          <div class="flex xs90p">
+            <span class="legend-square-text">Import</span>
+          </div>
+        </div>
+        <div class="layout row wrap">
+          <div class="flex xs10p">
+            <span class="legend-square" style="background-color: #f8d69b;"></span>
+          </div>
+          <div class="flex xs90p">
+            <span class="legend-square-text">Export</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- dialog box instruction -->
+    <div class="dialog-instruction">
+      <span>Click on the bubbles to find out more.</span>
+    </div>
+  </div>
+</body>
+
+<script>
+  mapboxgl.accessToken =
+    'pk.eyJ1Ijoia29udGluZW50YWxpc3QiLCJhIjoiY2trcXhiY3ViMDhqMjJwcGN0bWIxYmw5aSJ9.R60CtRwU5oteBvA5XybBqA'; // replace this with your access token
+  
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/kontinentalist/cknsl4xap0g8w18murjlhq2rk', //mapbox://styles/kontinentalist/cjvm6xxe333b71cldmgv25t5y',
+    center: [32.076,14.118],
+    zoom: 1.3
+  });
+
+  let isMobile = window.innerWidth < 680;
+  const zoom = 4 - (isMobile ? 1 : 0);
+
+  const layerNames = [
+      'energydata'
+  ];
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl({
+    showCompass: false
+  }));
+
+  map.on('load', function () {
+    map.addSource('points', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        // feature for Mapbox DC
+        'type': 'Feature',
+        'geometry': {
+        'type': 'Point',
+        'coordinates': [
+        -77.03238901390978,
+        38.913188059745586
+        ]
+        },
+        'properties': {
+        'title': 'Mapbox DC',
+        'radius': 1000
+        }
+        },
+        {
+        // feature for Mapbox SF
+        'type': 'Feature',
+        'geometry': {
+        'type': 'Point',
+        'coordinates': [-122.414, 37.776]
+        },
+        'properties': {
+        'title': 'Mapbox SF',
+        'radius': 100
+        }
+        }
+        ]
+        }
+        });
+
+    // Add a symbol layer
+        // map.addLayer({
+        // 'id': 'points',
+        // 'type': 'symbol',
+        // 'source': 'points',
+        // 'layout': {
+        // 'icon-image': 'custom-marker',
+        // // get the title name from the source's "title" property
+        // 'text-field': ['get', 'title'],
+        // 'text-font': [
+        // 'Open Sans Semibold',
+        // 'Arial Unicode MS Bold'
+        // ],
+        // 'text-offset': [0, 1.25],
+        // 'text-anchor': 'top'
+        // }
+        // });
+
+    // add layer
+    this.map.addLayer({
+        id: 'points',
+        type: 'circle',
+        source: 'points',
+        paint: {
+          'circle-opacity': 0.8,
+          'circle-stroke-color': '#B0B0B0',
+          'circle-stroke-width': 40,
+          'circle-radius': ['get', 'radius'],
+        },
+        layout: {
+          'visibility': 'none',
+        }
+      });      
+
+    // map.addSource("india_040220-5mkqnj", {
+    //     "type": "vector",
+    //     "url": "mapbox://kontinentalist.4dc98b73",
+    //     "maxzoom": 22,
+    //     "minzoom": 0
+    // });
+
+    // var popup = new mapboxgl.Popup({
+    //   closeButton: false,
+    //   closeOnClick: false,
+    // });
+    // var isMarkerClicked = false;
+    // var coordinates = [0, 0],
+    //   description = null;
+
+    // map.on('mousemove', 'choropleth-fill', function (e) {
+    //   onMouseHover(e, 'choropleth-fill', islamicWorldBilateralDisputeHTML);
+    // });
+    // map.on('mouseleave', 'choropleth-fill', onMouseLeave);
+
+    // map.on('click', function () {
+    //   if (popup.isOpen() && isMarkerClicked) {
+    //     popup.remove();
+    //     isMarkerClicked = false;
+    //   } else if (popup.isOpen() && !isMarkerClicked) {
+    //     isMarkerClicked = true;
+    //   }
+    // });
+
+    // function onMouseHover(e, id, htmlCallback) {
+    //   if (isMarkerClicked) {
+    //     return;
+    //   }
+    //   // Change the cursor style as a UI indicator.
+    //   map.getCanvas().style.cursor = 'pointer';
+
+    //   coordinates = e.lngLat;
+    //   properties = e.features[0].properties;
+
+    //   if (htmlCallback) {
+    //     html = htmlCallback(properties, coordinates);
+    //   }
+
+    //   popup
+    //     .setLngLat(coordinates)
+    //     .setHTML(html)
+    //     .addTo(map);
+    // }
+
+    // function onMouseLeave() {
+    //   map.getCanvas().style.cursor = '';
+    //   if (isMarkerClicked) {
+    //     return;
+    //   }
+    //   popup.remove();
+    // }
+
+    // function indiaMbps(properties) {
+    //   return '<h3 class="popup-title-font">' + properties.District + '</h3>' +
+    //     '<p class="popup-text-font">' + 'Ave download speed: ' + properties.ave_mpbs_wt + ' mbps</p>';
+    // }
+
+    // function islamicWorldBilateralDisputeHTML(properties) {
+    //   let header = '<h2 class="popup-title-font">' + properties.NAME_2 + '</h2>';
+    //   let district = '<p class="popup-text-font">District: ' + properties.NAME_1 + '</p>'
+    //   let speed = '<p class="popup-text-font">Mean download speed (mbps)</n><br> ' + properties.avg_d_mbps_wt.toFixed(2) + 
+    //     ' mbps</p>';
+    //   return header + district + speed
+    // }
+  });
+
+  // enable scrolling on CTRL key only
+  document.querySelector('canvas.mapboxgl-canvas').addEventListener('wheel', ev => {
+    var instruction = document.querySelector('.map-instruction');
+
+    if (ev.ctrlKey || ev.metaKey) {
+      instruction.style.display = 'none';
+      return
+    }
+
+    // You can have a layer on top of your map and trigger some CSS animation
+    // to display it on scrolling attempt here
+    instruction.style.display = 'block';
+    setTimeout(() => {
+      // hide instruction
+      instruction.style.display = 'none';
+    }, 800);
+
+    ev.stopImmediatePropagation()
+  });
+</script>
+
+</html>
