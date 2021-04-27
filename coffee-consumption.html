@@ -58,9 +58,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
       overflow: auto;
-      border-radius: 3px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       line-height: 18px;
       height: auto;
@@ -68,6 +66,10 @@
       padding: 15px;
       min-width: 90px;
       max-width: 90px;
+      background: #2E110F;
+      border: 1px solid #612420;
+      border-radius: 5px;
+      color:#FC9B9A;
     }
 
     #features {
@@ -79,7 +81,7 @@
 
     #legend-container {
       margin-right: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .legend-key {
@@ -255,6 +257,7 @@
       display: inline-block;
       width: 14px;
       height: 14px;
+      border-radius:8px;
     }
 
     .legend-square-text {
@@ -313,8 +316,10 @@
       transform: translate(-50%, -48px);
       padding: 8px;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 1px 3px rgba(0,0,0,.14);
+      background: #2E110F;
+      border: 1px solid #612420;
+      color:#FC9B9A;
     }
 
     .v-dialog-overlay {
@@ -415,7 +420,7 @@
     /* mobile */
     @media (max-width: 959px) {
       .map-overlay {
-        margin-bottom: 78px !important;
+        margin-bottom: 50px !important;
       }
 
       .dialog-instruction {
@@ -515,6 +520,24 @@
       opacity: 0.3;
     }
 
+    /* legend circles */
+    .inner-two{
+      height: 100%;
+      width: 100%;
+      background: none;
+      border: 1px solid #FC9B9A;
+      border-radius: 50%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+
+    .container {
+        width: 100px;
+        height: 100px;
+        margin: 1%;
+    }
+
 
     /* @media all and (max-width: 480px) {
       #legend-container {
@@ -566,32 +589,53 @@
       <div class="legend-flex xs12">
         <div class="layout row wrap pb-1">
           <div class="flex xs12">
-            <span class="legend-title-font">Country is primarily a</span>
+            <span class="legend-title-font">Total consumption</span>
           </div>
         </div>
+
+        <div class="layout row wrap pb-1">
+          <div class="flex xs12">
+            <!-- <div class="inner-two container">
+              <div class="inner-two">
+                <div class="inner-two">
+                </div>
+            </div>
+            </div> -->
+
+
+          </div>
+        </div>
+
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #064E43;"></span>
+            <span class="legend-square" style="background-color: #D5403F;"></span>
           </div>
           <div class="flex xs90p">
             <span class="legend-square-text">Importer</span>
           </div>
         </div>
+
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #E58162;"></span>
+            <span class="legend-square" style="background-color: #204C41;"></span>
           </div>
           <div class="flex xs90p">
             <span class="legend-square-text">Exporter</span>
+          </div>
+        </div>
+
+        <div class="layout row wrap" style="padding-top: 1em;">
+          <div class="flex xs12">
+            <span>Click on the bubbles to find out more.</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- dialog box instruction -->
-    <div class="dialog-instruction">
+    <!-- <div class="dialog-instruction">
       <span>Click on the bubbles to find out more.</span>
-    </div>
+    </div> -->
   </div>
 </body>
 
@@ -602,8 +646,8 @@
   
   
   let isMobile = window.innerWidth < 680;
-  const zoom = isMobile ? 1 : 1.5;
-  const center = isMobile ? [13.956,56.274] : [20,14.118]
+  const zoom = isMobile ? 1 : 2.1;
+  const center = isMobile ? [52.469,42.018] : [19.832,8.743]
 
   var map = new mapboxgl.Map({
     container: 'map',
@@ -672,7 +716,7 @@
     function clickable(properties) {
       let header = '<h2 class="popup-title-font">' + properties.country + '</h2>';
       let type = '<p class="popup-text-font">Primary involvement in coffee: ' + properties.type + '</p>'
-      let kg = '<p class="popup-text-font">Coffee consumed in 2019 (kg):</n><br> ' + properties.kg.toLocaleString('en') + '</p>';
+      let kg = '<p class="popup-text-font">Thousands of 60 kg bags consumed (2019):</n> ' + properties["2019"].toLocaleString('en') + '</p>';
       return header + type + kg
     }
   });

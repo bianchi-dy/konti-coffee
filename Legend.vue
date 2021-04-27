@@ -7,6 +7,7 @@
       <div class="legend-container">
         <h4 class="caption font-weight-bold">Total persons</h4>
         <v-layout class="legend-pop mt-2">
+
           <v-flex xs6 lg11 align-self-center>
             <div class="legend-pop__label">
               <div class="dotted-line" />
@@ -21,6 +22,7 @@
               <v-flex xs12 align-self-end mb-2 class="caption">30</v-flex>
             </v-layout>
           </v-flex>
+          
         </v-layout>
       </div>
     </v-flex>
