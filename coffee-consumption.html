@@ -63,9 +63,9 @@
       line-height: 18px;
       height: auto;
       width: auto;
-      padding: 15px;
+      padding: 16px;
       min-width: 90px;
-      max-width: 90px;
+      max-width: 10px;
       background: #2E110F;
       border: 1px solid #612420;
       border-radius: 5px;
@@ -81,7 +81,7 @@
 
     #legend-container {
       margin-right: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .legend-key {
@@ -262,7 +262,6 @@
 
     .legend-square-text {
       padding-left: 10px;
-      opacity: 0.7;
     }
 
     .datasource-font {
@@ -521,79 +520,30 @@
     }
 
     /* legend circles */
-    .inner-two{
-      height: 100%;
+    .circles {
+      position: relative;
       width: 100%;
-      background: none;
+      padding-bottom: 100%;
+    }
+
+    .big-circle {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      background-color: none;
+      border-radius: 50%;
+      border: 1px solid #FC9B9A;
+    }
+
+    .small-circle{
+      margin-top: 85%;
+      margin-left: 45%;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: none;
       border: 1px solid #FC9B9A;
       border-radius: 50%;
-      padding: 5px;
-      box-sizing: border-box;
-    }
-
-
-    .container {
-        width: 100px;
-        height: 100px;
-        margin: 1%;
-    }
-
-
-    .legend-pop__label {
-      position: relative;
-      border: 1px solid #959595;
-      border-radius: 50%;
-      width: 100%;
-
-      &:before {
-        content: '';
-        display: block;
-        padding-top: 100%;
-      }
-
-      .dotted-line {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 50%;
-        height: 1px;
-        border-top: 1px dotted #959595;
-      }
-
-      .dotted-line2 {
-        position: absolute;
-        bottom: 25%;
-        left: 50%;
-        width: 50%;
-        height: 1px;
-        border-top: 1px dotted #959595;
-      }
-
-      .label__inner {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 1px solid #959595;
-        border-radius: 50%;
-        width: 25%;
-        height: 25%;
-      }
-    }
-
-    .layout {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        min-width: 0;
     }
 
     /* @media all and (max-width: 480px) {
@@ -646,33 +596,24 @@
       <div class="legend-flex xs12">
         <div class="layout row wrap pb-1">
           <div class="flex xs12">
-            <span class="legend-title-font">Total consumption</span>
+            <span class="legend-title-font">Coffee consumption (thousands of 60kg bags)</span>
           </div>
         </div>
 
         <div class="layout row wrap pb-1">
-          <div class="flex xs12">
-            <!-- <div class="inner-two container">
-              <div class="inner-two">
-                <div class="inner-two">
+          <div class="flex xs10">
+            <div class="circles">
+              <div class="big-circle">
+                <div class="small-circle">
                 </div>
-            </div>
-            </div> -->
-
-            <div class="flex xs6 lg11 align-self-center">
-              <div class="legend-pop__label">
-                <div class="dotted-line" />
-                <div class="label__inner"/>
-                <div class="dotted-line2" />
               </div>
             </div>
-  
-            <!-- <v-flex xs5 offset-xs1>
-              <v-layout wrap fill-height>
-                <v-flex xs12 class="caption">350</v-flex>
-                <v-flex xs12 align-self-end mb-2 class="caption">30</v-flex>
-              </v-layout>
-            </v-flex> -->
+          </div>
+          <div class="flex xs2" style="margin-left:-0.6em;">
+            <div>40700</div>
+            <div style="position: absolute; top:45%;">
+              500
+            </div>
           </div>
         </div>
 
@@ -696,7 +637,7 @@
 
         <div class="layout row wrap" style="padding-top: 1em;">
           <div class="flex xs12">
-            <span>Click on the bubbles to find out more.</span>
+            <span style="font-size:10px;">Click on the bubbles to find out more.</span>
           </div>
         </div>
       </div>
@@ -716,8 +657,8 @@
   
   
   let isMobile = window.innerWidth < 680;
-  const zoom = isMobile ? 1 : 2.1;
-  const center = isMobile ? [52.469,42.018] : [19.832,8.743]
+  const zoom = isMobile ? 0.9 : 1.5;
+  const center = isMobile ? [52.469,10] : [19.832,8.743]
 
   var map = new mapboxgl.Map({
     container: 'map',
