@@ -48,6 +48,15 @@
     .mapboxgl-popup-content {
       font-family: 'Karla', sans-serif !important;
       max-width: 250px;
+      background-color: #F9C3A5;
+      color: #2E110F;
+    }
+
+    .mapboxgl-popup-tip {
+      border-left-color: none !important;
+      border-top-color: none !important;
+      border-bottom-color: none !important;
+      border-right-color: none !important;
     }
 
     /**
@@ -66,10 +75,10 @@
       padding: 16px;
       min-width: 90px;
       max-width: 10px;
-      background: #2E110F;
-      border: 1px solid #612420;
+      background: #862019;
+      /* border: 1px solid #612420; */
       border-radius: 5px;
-      color:#FC9B9A;
+      color:#F9C3A5;
     }
 
     #features {
@@ -316,7 +325,7 @@
       padding: 8px;
       border-radius: 8px;
       box-shadow: 0 1px 3px rgba(0,0,0,.14);
-      background: #2E110F;
+      background: #862019;
       border: 1px solid #612420;
       color:#FC9B9A;
     }
@@ -532,17 +541,17 @@
       height: 80%;
       background-color: none;
       border-radius: 50%;
-      border: 1px solid #FC9B9A;
+      border: 1.5px solid #F9C3A5;
     }
 
     .small-circle{
-      margin-top: 85%;
-      margin-left: 45%;
+      margin-top: 83%;
+      margin-left: 42%;
       position: absolute;
       width: 8px;
       height: 8px;
       background-color: none;
-      border: 1px solid #FC9B9A;
+      border: 1.5px solid #F9C3A5;
       border-radius: 50%;
     }
 
@@ -609,7 +618,7 @@
               </div>
             </div>
           </div>
-          <div class="flex xs2" style="margin-left:-0.6em;">
+          <div class="flex xs2" style="margin-left:-0.9em;">
             <div>40700</div>
             <div style="position: absolute; top:45%;">
               500
@@ -619,7 +628,7 @@
 
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #D5403F;"></span>
+            <span class="legend-square" style="background-color: #D5403F; border: 1px solid #F9C3A5;"></span>
           </div>
           <div class="flex xs90p">
             <span class="legend-square-text">Importer</span>
@@ -628,7 +637,7 @@
 
         <div class="layout row wrap">
           <div class="flex xs10p">
-            <span class="legend-square" style="background-color: #204C41;"></span>
+            <span class="legend-square" style="background-color: #204C41; border: 1px solid #F9C3A5;"></span>
           </div>
           <div class="flex xs90p">
             <span class="legend-square-text">Exporter</span>
