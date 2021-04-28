@@ -48,6 +48,8 @@
     .mapboxgl-popup-content {
       font-family: 'Karla', sans-serif !important;
       max-width: 250px;
+      background-color: #F9C3A5;
+      color: #2E110F;
     }
 
     /**
@@ -66,10 +68,10 @@
       padding: 16px;
       min-width: 90px;
       max-width: 10px;
-      background: #2E110F;
-      border: 1px solid #612420;
+      background: #862019;
+      border: 1px solid #862019;
       border-radius: 5px;
-      color:#FC9B9A;
+      color:#F9C3A5;
     }
 
     #features {
@@ -258,6 +260,7 @@
       width: 14px;
       height: 14px;
       border-radius:8px;
+      border: 1px solid #F9C3A5;
     }
 
     .legend-square-text {
@@ -532,20 +535,35 @@
       height: 80%;
       background-color: none;
       border-radius: 50%;
-      border: 1px solid #FC9B9A;
+      border: 2px solid #F9C3A5;
     }
 
     .small-circle{
-      margin-top: 85%;
-      margin-left: 45%;
+      margin-top: 82%;
+      margin-left: 42%;
       position: absolute;
       width: 8px;
       height: 8px;
       background-color: none;
-      border: 1px solid #FC9B9A;
+      border: 2px solid #F9C3A5;
       border-radius: 50%;
     }
 
+    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+      border-left-color:#F9C3A5!important;
+    }
+
+    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+      border-right-color:#F9C3A5!important;
+    }
+
+    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+      border-bottom-color:#F9C3A5!important;
+    }
+
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+      border-top-color:#F9C3A5!important;
+    }
     /* @media all and (max-width: 480px) {
       #legend-container {
         margin-left: 20px;
@@ -609,7 +627,7 @@
               </div>
             </div>
           </div>
-          <div class="flex xs2" style="margin-left:-0.6em;">
+          <div class="flex xs2" style="margin-left:-0.9em;">
             <div>40700</div>
             <div style="position: absolute; top:45%;">
               500
