@@ -7,7 +7,8 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
-  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -47,7 +48,7 @@
 
     .mapboxgl-popup-content {
       font-family: 'Karla', sans-serif !important;
-      max-width: 250px;
+      max-width: 300px;
       background-color: #F9C3A5;
       color: #2E110F;
     }
@@ -535,17 +536,17 @@
       height: 80%;
       background-color: none;
       border-radius: 50%;
-      border: 2px solid #F9C3A5;
+      border: 1.5px solid #F9C3A5;
     }
 
     .small-circle{
-      margin-top: 82%;
+      margin-top: 83%;
       margin-left: 42%;
       position: absolute;
       width: 8px;
       height: 8px;
       background-color: none;
-      border: 2px solid #F9C3A5;
+      border: 1.5px solid #F9C3A5;
       border-radius: 50%;
     }
 
@@ -744,8 +745,8 @@
 
     function clickable(properties) {
       let header = '<h2 class="popup-title-font">' + properties.country + '</h2>';
-      let type = '<p class="popup-text-font">Primary involvement in coffee: ' + properties.type + '</p>'
-      let kg = '<p class="popup-text-font">Thousands of 60 kg bags consumed (2019):</n> ' + properties["2019"].toLocaleString('en') + '</p>';
+      let type = '<p class="popup-text-font"><i>Primary involvement in coffee:</i><br/><b>' + properties.type.replace(/^\w/, c => c.toUpperCase()); + '</b></p>'
+      let kg = '<p class="popup-text-font"><i>Thousands of 60 kg bags consumed (2019):</i><br/><b> ' + properties["2019"].toLocaleString('en') + '</b></p>';
       return header + type + kg
     }
   });
