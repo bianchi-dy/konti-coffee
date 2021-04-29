@@ -9,7 +9,6 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
   <style>
     body {
       margin: 0;
@@ -84,8 +83,8 @@
     }
 
     #legend-container {
-      margin-right: 15px !important;
-      margin-bottom: 85px !important;
+      margin-right: 20px;
+      margin-bottom: 30px;
     }
 
     .legend-key {
@@ -324,8 +323,6 @@
       background: #862019;
       border: 1px solid #612420;
       color:#FC9B9A;
-      font-size:12px;
-      text-align: center;
     }
 
     .v-dialog-overlay {
@@ -543,7 +540,7 @@
     }
 
     .small-circle{
-      margin-top: 84%;
+      margin-top: 83%;
       margin-left: 42%;
       position: absolute;
       width: 8px;
@@ -553,7 +550,6 @@
       border-radius: 50%;
     }
 
-    /* mapbox correction for tooltip */
     .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
       border-left-color:#F9C3A5!important;
     }
@@ -569,22 +565,39 @@
     .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
       border-top-color:#F9C3A5!important;
     }
+    /* @media all and (max-width: 480px) {
+      #legend-container {
+        margin-left: 20px;
+      }
 
-    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
-      border-bottom-color:#F9C3A5!important;
-    }
+      .map-overlay {
+        max-width: unset;
+      }
 
-    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-      border-bottom-color:#F9C3A5!important;
-    }
+      .xs-pt-0 {
+        padding-top: 0px !important;
+      }
 
-    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
-      border-top-color:#F9C3A5!important;
-    }
+      .logo-img {
+        top: 0px;
+      }
 
-    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-      border-top-color:#F9C3A5!important;
-    }
+      .xs-flex {
+        flex-direction: row;
+      }
+
+      .legend-text1 {
+        left: 45%;
+      }
+
+      .legend-text2 {
+        left: 45%;
+      }
+
+      .jackpot-winnings-container {
+        max-width: 135px;
+      }
+    } */
   </style>
 </head>
 
@@ -617,7 +630,7 @@
           </div>
           <div class="flex xs2" style="margin-left:-0.9em;">
             <div>40700</div>
-            <div style="position: absolute; top:60%;">
+            <div style="position: absolute; top:45%;">
               500
             </div>
           </div>
@@ -641,21 +654,18 @@
           </div>
         </div>
 
-        <!-- <div class="layout row wrap" style="padding-top: 1em;">
+        <div class="layout row wrap" style="padding-top: 1em;">
           <div class="flex xs12">
             <span style="font-size:10px;">Click on the bubbles to find out more.</span>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
     <!-- dialog box instruction -->
-    <div class="dialog-instruction">
-      <span style="font-size:10px;"><svg data-v-2f7bc54e="" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mr-1 svg-inline--fa fa-hand-pointer fa-w-14 fa-fw"><path data-v-2f7bc54e="" fill="currentColor" d="M448 240v96c0 3.084-.356 6.159-1.063 9.162l-32 136C410.686 499.23 394.562 512 376 512H168a40.004 40.004 0 0 1-32.35-16.473l-127.997-176c-12.993-17.866-9.043-42.883 8.822-55.876 17.867-12.994 42.884-9.043 55.877 8.823L104 315.992V40c0-22.091 17.908-40 40-40s40 17.909 40 40v200h8v-40c0-22.091 17.908-40 40-40s40 17.909 40 40v40h8v-24c0-22.091 17.908-40 40-40s40 17.909 40 40v24h8c0-22.091 17.908-40 40-40s40 17.909 40 40zm-256 80h-8v96h8v-96zm88 0h-8v96h8v-96zm88 0h-8v96h8v-96z" class=""></path></svg>
-      </span>
-      &nbsp;
+    <!-- <div class="dialog-instruction">
       <span>Click on the bubbles to find out more.</span>
-    </div>
+    </div> -->
   </div>
 </body>
 
